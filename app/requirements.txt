@@ -1,0 +1,29 @@
+Django
+pandas
+requests
+django-crispy-forms
+#crispy-bootstrap4
+django-storages
+boto3
+python-dotenv
+bootstrap4
+pillow
+whitenoise
+gunicorn
+scikit-learn
+scipy
+psycopg2-binary
+
+# ─── Test dependencies ───────────────────────────────────────────────────
+pytest
+pytest-cov
+factory-boy
+pytest-mock
+
+# ─── Dev / tooling (pre-commit) ───────────────────────────────────────────
+black
+isort
+mypy
+
+
+

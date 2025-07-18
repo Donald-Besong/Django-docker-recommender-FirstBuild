@@ -1,0 +1,11 @@
+{% extends "recommender_app/base.html" %}
+{% block content %}
+
+<div class="content-section">
+   <h1>{{ title }}</h1>
+       {{ movies }}
+       
+    <p>************End of recommendation ***************</p>
+   <a class="nav-item nav-link" href="{% url 'post-movies' %}">Click here to load more files</a>         
+</div>
+{% endblock content %}

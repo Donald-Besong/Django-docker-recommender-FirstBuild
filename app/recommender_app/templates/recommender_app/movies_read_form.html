@@ -1,0 +1,20 @@
+{% extends "recommender_app/base.html" %}
+{% load crispy_forms_tags %}
+{% block content%}
+    <div class="collapse alert alert-info" id="wait"><strong>Waiting</strong> for progress to ...
+    <p>If your file is large it might take some minutes<p></div>
+    <div class="content-section">
+        <form method="POST" action="#" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Read movies file</legend>
+            </fieldset>
+            <div class="form-group">
+				<div class='row'> {{ movies_form.title|as_crispy_field }}</div>
+			    <div class='row'> {{ movies_form.file_name|as_crispy_field }}</div>
+                <button class="btn btn-outline-info" data-toggle="collapse" data-target="#wait" type="submit">Recommend Movies To User</button>
+            </div>
+        </form>
+    </div>
+{% endblock content %}
+

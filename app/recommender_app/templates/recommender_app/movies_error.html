@@ -1,0 +1,9 @@
+{% extends "recommender_app/base.html" %}
+{% block content %}
+    <h1>csv Error Page</h1>
+       {{ test }}
+        <div class="border-top pt-3">
+           <h1> <a href="{% url 'post-movies' %}">Try Again</a>
+           </h1>
+        </div>
+{% endblock content %}

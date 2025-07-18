@@ -1,0 +1,15 @@
+{% extends "recommender_app/base.html" %}
+{% block content%}
+    <div class="content-section">
+		<p>Don't know the isbn of a book?
+           <a class="nav-item nav-link" href="https://www.isbnsearch.org">Find your book's ISBN here</a> 
+        </p>
+        <p>Need a sample book csv file for the user?
+           <a class="nav-item nav-link" href="https://django-recommender-bucket.s3.eu-west-1.amazonaws.com/static/csv_files/user_ratings.csv">Download here</a> 
+        </p> 
+        <p> Ready to run Donald's recommendation Engine?
+           <a class="nav-item nav-link" href="{% url 'post-movies' %}">back to upload page</a>
+        </p>       
+    </div>
+{% endblock content %}
+

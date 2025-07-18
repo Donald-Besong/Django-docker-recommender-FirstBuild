@@ -1,0 +1,20 @@
+# Ignore Python cache files
+__pycache__/
+*.pyc
+
+# Ignore log files
+# *.log
+
+# Ignore local config files
+config/local_settings.py
+
+# Ignore virtual environment folders
+venv/
+.env/
+.env*
+local_venv/
+# ignore notes
+notes_docker-etc.txt
+notes.txt
+
+
