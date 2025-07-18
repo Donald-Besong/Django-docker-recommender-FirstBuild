@@ -27,10 +27,12 @@ jobs:
         
       - name: Run container and execute tests
         run: |
-          docker run -it -d --name test-image django-recomm-july-build tail -f /dev/null
+          docker run --name test-image django-recomm-july-build tail -f /dev/null
           docker exec -it test-image sh -c '[ "$(pwd)/" = "/usr/src/app/" ] && echo true || echo false'
           docker exec -it test-image sh -c '[ "$PYTHONDONTWRITEBYTECODE" = "1" ] && [ "$PYTHONBUFFERED" = "1" ] && echo true || echo false'
           docker exec -it test-image sh -c '[ -d wheels ] && [ ! -f wheels/requirements.txt ] && echo true || echo false'
-          docker rm -f test-image 
+          docker rm -f test-image
+          
+   
       
 
