@@ -32,7 +32,7 @@ APP_DIR = BASE_DIR / "recommender_app"
 load_dotenv(
     find_dotenv(".env-prod"), override=True
 )  # not needed in cloudformation as this is set directly in the formation templates
-DEBUG = bool(ïnt(os.environ.get("DJANGO_DEBUG", default=1)))
+DEBUG = bool(int(os.environ.get("DJANGO_DEBUG", default=1)))
 USE_S3 = bool(
     os.environ.get("USE_S3", default=0)
 )  # False, if true, be sure to paste the approriate bucket policy
