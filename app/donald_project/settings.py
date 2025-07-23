@@ -13,7 +13,10 @@ import os
 from pathlib import Path
 
 from django.contrib.messages import constants as messages
-from dotenv import find_dotenv, load_dotenv
+
+DEBUG = True #temporary set this for dotenv, etc to not scream in production
+if DEBUG:
+	from dotenv import find_dotenv, load_dotenv
 
 # dotenv is not needed anymore since docker-compose
 # has the env directive that loads the .env's variables
