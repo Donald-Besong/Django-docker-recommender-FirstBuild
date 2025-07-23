@@ -14,7 +14,7 @@ from pathlib import Path
 
 from django.contrib.messages import constants as messages
 
-DEBUG = True #temporary set this for dotenv, etc to not scream in production
+DEBUG = False #temporary set this for dotenv, etc to not scream in production
 if DEBUG:
 	from dotenv import find_dotenv, load_dotenv
 
