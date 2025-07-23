@@ -31,9 +31,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 APP_DIR = BASE_DIR / "recommender_app"
 # print("*********** {} ***********".format(BASE_DIR))
 # load_dotenv(find_dotenv(), override=True)
-load_dotenv(
-    find_dotenv(".env-prod"), override=True
-)  # not needed in cloudformation as this is set directly in the formation templates
+if DEBUG:
+	load_dotenv(find_dotenv(".env-prod"), override=True)  # not needed in cloudformation 
+# as this is set directly in the formation templates. Not needed in any deployment.
 DEBUG = bool(int(os.environ.get("DJANGO_DEBUG", default=1)))
 USE_S3 = bool(int(os.environ.get("USE_S3", default=0))) # False, if true, be sure to paste the approriate bucket policy
 USE_DATABASE_AWS = bool(int(os.environ.get("USE_DATABASE_AWS", default=0)))  # False
