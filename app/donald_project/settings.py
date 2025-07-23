@@ -13,10 +13,7 @@ import os
 from pathlib import Path
 
 from django.contrib.messages import constants as messages
-
-DEBUG = False #temporary set this for dotenv, etc to not scream in production
-if DEBUG:
-	from dotenv import find_dotenv, load_dotenv
+from dotenv import find_dotenv, load_dotenv
 
 # dotenv is not needed anymore since docker-compose
 # has the env directive that loads the .env's variables
@@ -31,9 +28,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 APP_DIR = BASE_DIR / "recommender_app"
 # print("*********** {} ***********".format(BASE_DIR))
 # load_dotenv(find_dotenv(), override=True)
-if DEBUG:
-	load_dotenv(find_dotenv(".env-prod"), override=True)  # not needed in cloudformation 
-# as this is set directly in the formation templates. Not needed in any deployment.
+load_dotenv(
+    find_dotenv(".env-prod"), override=True
+)  # not needed in cloudformation as this is set directly in the formation templates
 DEBUG = bool(int(os.environ.get("DJANGO_DEBUG", default=1)))
 USE_S3 = bool(int(os.environ.get("USE_S3", default=0))) # False, if true, be sure to paste the approriate bucket policy
 USE_DATABASE_AWS = bool(int(os.environ.get("USE_DATABASE_AWS", default=0)))  # False
