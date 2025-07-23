@@ -10,6 +10,7 @@ config/local_settings.py
 
 # Ignore virtual environment folders
 venv/
+venv_for_prepush/
 .env/
 .env*
 local_venv/
