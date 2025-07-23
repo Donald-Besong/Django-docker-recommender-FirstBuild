@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 import os
 from pathlib import Path
 
-import whitenoise  # to prevent caching during development
 from django.contrib.messages import constants as messages
 from dotenv import find_dotenv, load_dotenv
 
@@ -104,6 +103,9 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+
+if DEBUG:
+	import whitenoise  # to prevent caching during development
 
 if DEBUG:  # prevent caching of static and media files
     MIDDLEWARE = [
