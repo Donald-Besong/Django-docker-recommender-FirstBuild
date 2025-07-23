@@ -33,10 +33,8 @@ load_dotenv(
     find_dotenv(".env-prod"), override=True
 )  # not needed in cloudformation as this is set directly in the formation templates
 DEBUG = bool(int(os.environ.get("DJANGO_DEBUG", default=1)))
-USE_S3 = bool(
-    os.environ.get("USE_S3", default=0)
-)  # False, if true, be sure to paste the approriate bucket policy
-USE_DATABASE_AWS = bool(os.environ.get("USE_DATABASE_AWS", default=0))  # False
+USE_S3 = bool(int(os.environ.get("USE_S3", default=0))) # False, if true, be sure to paste the approriate bucket policy
+USE_DATABASE_AWS = bool(int(os.environ.get("USE_DATABASE_AWS", default=0)))  # False
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 LOGIN_REDIRECT_URL = "home"
@@ -60,6 +58,7 @@ if USE_S3:
 else:
     if not DEBUG:
         STATIC_ROOT = BASE_DIR / "static/"  # for production first collectstatic
+        print("STATIC_ROOT set to:", STATIC_ROOT)  
     MEDIA_ROOT = BASE_DIR / "media"  # saves media here, default loads from here
     MEDIA_URL = "/media/"  # you access it via http://localhost:8000/media/default.jpg
     STATIC_URL = "static/"
