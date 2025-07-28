@@ -31,4 +31,4 @@ class ProfileModelTest(unittest.TestCase):
         mock_create.assert_called_once()
         mock_save.assert_called_once()
 
-
+# Recommended to be run using pytest
