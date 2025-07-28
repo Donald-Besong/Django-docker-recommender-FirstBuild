@@ -19,6 +19,7 @@ pytest
 pytest-cov
 factory-boy
 pytest-mock
+pytest-django
 
 # ─── Dev / tooling (pre-commit) ───────────────────────────────────────────
 black
